@@ -1,0 +1,31 @@
+﻿<Window x:Class="Vigenere_Cipher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vigenere_Cipher"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Decrypted Text" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="108" Height="29"/>
+        <TextBox x:Name="decryptText" HorizontalAlignment="Left" Margin="123,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="658" Height="110" Text="Make it Happen"/>
+        <Label Content="Encrypted Text" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="108" Height="29"/>
+        <Label Content="Key" HorizontalAlignment="Left" Margin="18,303,0,0" VerticalAlignment="Top" Width="108" Height="29"/>
+        <TextBox x:Name="Key" HorizontalAlignment="Left" Margin="131,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="658" Height="29" Text="Math "/>
+        <TextBox x:Name="encryptText" HorizontalAlignment="Left" Margin="123,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="658" Height="110"/>
+        <Button Content="Convert" HorizontalAlignment="Left" Margin="24,355,0,0" VerticalAlignment="Top" Height="38" Width="76" Click="Button_Click"/>
+        <RadioButton x:Name="encrypt" Content="Encrypt" HorizontalAlignment="Left" Margin="143,374,0,0" VerticalAlignment="Top" GroupName="grp1"/>
+        <RadioButton x:Name="decrypt" Content="Decrypt" HorizontalAlignment="Left" Margin="254,374,0,0" VerticalAlignment="Top" GroupName="grp1"/>
+        <TextBox x:Name="logout" HorizontalAlignment="Left" Margin="349,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="440" Height="50" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+
+    </Grid>
+</Window>
