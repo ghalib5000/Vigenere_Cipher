@@ -2,44 +2,49 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vigenere_Cipher.Encryption
+namespace Vigenere_Cipher.Decryption
 {
-    class Encryption
+    class Decryption
     {
-        private string key;
-        private string decrypted_text;
+        string encryptedText;
+        string key;
         private char[] decryptedtext;
         private List<char> newkey = new List<char>();
-
-        string encryptedText = "";
-
+        List<int> combinedvals = new List<int>();
         alphabets alpha = new alphabets();
 
-        public Encryption(string encrypted_text, string key)
+        string DecryptedText = "";
+        public Decryption(string encrypted_text, string key)
         {
             this.key = key;
-            //this.key = key.ToUpper();
-            this.decrypted_text = encrypted_text;
-            //this.decrypted_text = encrypted_text.ToUpper();
+            // this.key = key.ToUpper();
+            this.encryptedText = encrypted_text;
+            // this.encryptedText = encrypted_text.ToUpper();
         }
-        public void startEncrypting()
+
+        public void startDecrypting()
         {
             supplyValues();
-            applyEncryption();
+            applyDecryption();
+        }
+
+
+        public string returndecryption()
+        {
+            return DecryptedText;
         }
         public void updateText(string text)
         {
-            this.decrypted_text = text;
-            encryptedText = "";
+            this.encryptedText = text;
+            DecryptedText = "";
         }
         public void updateKey(string key)
         {
             this.key = key;
         }
-
         public void supplyValues()
         {
-            decryptedtext = decrypted_text.ToCharArray();
+            decryptedtext = encryptedText.ToCharArray();
             int j = 0;
             for (int i = 0; i < decryptedtext.Length; i++)
             {
@@ -53,27 +58,22 @@ namespace Vigenere_Cipher.Encryption
 
         }
 
-        public void applyEncryption()
+        public void applyDecryption()
         {
 
             for (int i = 0; i < decryptedtext.Length; i++)
             {
                 int temp, texttemp;
                 temp = alpha.aphabets.FindIndex(0, x => x.Equals(newkey[i]));
-                texttemp = alpha.aphabets.FindIndex(0, x => x.Equals(decrypted_text[i]));
-                int newtemp = temp + texttemp;
-                if (newtemp >= alpha.aphabets.Count)
+                texttemp = alpha.aphabets.FindIndex(0, x => x.Equals(encryptedText[i]));
+                int newtemp = texttemp - temp;
+                if (newtemp <= -1)
                 {
-                    newtemp = newtemp - alpha.aphabets.Count;
+                    newtemp = newtemp + alpha.aphabets.Count;
                 }
-                encryptedText += alpha.aphabets[newtemp];
+                DecryptedText += alpha.aphabets[newtemp];
             }
-
-        }
-
-        public string returnencryption()
-        {
-            return encryptedText;
         }
     }
 }
+

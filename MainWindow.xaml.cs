@@ -20,6 +20,7 @@ namespace Vigenere_Cipher
     /// </summary>
     public partial class MainWindow : Window
     {
+        int noofround;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,24 +31,43 @@ namespace Vigenere_Cipher
         {
             try
             {
-                if(encrypt.IsChecked.Value)
+                if (noOfROunds.Text.Length != 0)
+                {
+                    noofround = Convert.ToInt32(noOfROunds.Text);
+
+                }
+                if (encrypt.IsChecked.Value)
                 {
                     Encryption.Encryption encrypter = new Encryption.Encryption(decryptText.Text, Key.Text);
-                    encrypter.startEncrypting();
+                    for (int i = 0; i < noofround; i++)
+                    {
+                        encrypter.updateText(decryptText.Text);
+                        encrypter.startEncrypting();
+                        decryptText.Text = encrypter.returnencryption();
+                    }
+                    decryptText.Text = "";
                     encryptText.Text = encrypter.returnencryption();
                 }
-                else if(decrypt.IsChecked.Value)
+                else if (decrypt.IsChecked.Value)
                 {
-
+                    Decryption.Decryption decrypter = new Decryption.Decryption(encryptText.Text, Key.Text);
+                    for (int i = 0; i < noofround; i++)
+                    {
+                        decrypter.updateText(encryptText.Text);
+                        decrypter.startDecrypting();
+                        encryptText.Text = decrypter.returndecryption();
+                    }
+                    encryptText.Text = "";
+                    decryptText.Text = decrypter.returndecryption();
                 }
                 else
                 {
                     logout.Text += "Please select atleast one option" + Environment.NewLine;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                logout.Text += ex.Message+Environment.NewLine;
+                logout.Text += ex.Message + Environment.NewLine;
             }
         }
     }
