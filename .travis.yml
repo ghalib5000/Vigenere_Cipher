@@ -4,8 +4,12 @@ solution: Vigenere_Cipher.sln
 os: windows
 mono: none
 
+addons:
+  artifacts: true
+
 script:
 - choco install dotnetcore-sdk
 - dotnet --version
 - dotnet restore	
 - dotnet build
+- dir \bin\Debug\netcoreapp3.0
