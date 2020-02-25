@@ -1,8 +1,7 @@
 language: csharp
-os: windows
 solution: Vigenere_Cipher.sln
 mono: none
-dotnet: 2.1.502
+dotnet: 3.0
 script:
  - dotnet restore	
  - dotnet build
