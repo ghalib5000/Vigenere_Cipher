@@ -1,7 +1,10 @@
 language: csharp
+os: linux
 solution: Vigenere_Cipher.sln
 mono: none
-dotnet: 2.2
+#dotnet: 2.2
+MSBuildSDKsPath = "C:\Program Files\dotnet\sdk\2.2.0\Sdks""
 script:
+- choco install dotnetcore-sdk
  - dotnet restore	
  - dotnet build
