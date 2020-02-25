@@ -1,0 +1,6 @@
+language: csharp
+solution: Vigenere_Cipher.sln
+mono: none
+dotnet: 3.0.0
+script:
+ - dotnet restore	
