@@ -10,6 +10,5 @@
      steps:
        - checkout
        - run: dotnet build
-
 	   - store_artifacts:
-          path: /tmp/artifacts
+           path: /tmp/artifacts
