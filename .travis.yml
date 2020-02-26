@@ -13,10 +13,8 @@ script:
 - dotnet restore	
 - dotnet build
 - dir .\\bin\\Debug\\netcoreapp3.0
-
-script:
   # This command generates a release.zip file.
-  - make dist
+- make dist
 deploy:
   provider: releases
  # overwrite:true
