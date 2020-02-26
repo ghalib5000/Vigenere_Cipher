@@ -18,7 +18,6 @@ script:
   # This command generates a release.zip file.
 - 7z a -tzip release.zip .\\bin\\Debug\\netcoreapp3.0
 - dir
-before_deploy:
 # Set up git user name and tag this commit
 - git config --local user.name "ghalib5000"
 - git config --local user.email "ghalibahmed5000@gmail.com"
