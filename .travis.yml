@@ -18,11 +18,6 @@ script:
   # This command generates a release.zip file.
 - 7z a -tzip release.zip .\\bin\\Debug\\netcoreapp3.0
 - dir
-# Set up git user name and tag this commit
-- git config --local user.name "ghalib5000"
-- git config --local user.email "ghalibahmed5000@gmail.com"
-- export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-- git tag $TRAVIS_TA
 
 deploy:
   provider: releases
