@@ -20,7 +20,7 @@ namespace Vigenere_Cipher
     /// </summary>
     public partial class MainWindow : Window
     {
-        int noofround;
+        int noofround= 1;
         public MainWindow()
         {
             InitializeComponent();
