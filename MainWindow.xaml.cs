@@ -36,7 +36,7 @@ namespace Vigenere_Cipher
                     noofround = Convert.ToInt32(noOfROunds.Text);
 
                 }
-                if (encrypt.IsChecked.Value)
+                if (encrypt.IsChecked.Value && decryptText.Text!="")
                 {
                     Encryption.Encryption encrypter = new Encryption.Encryption(decryptText.Text, Key.Text);
                     for (int i = 0; i < noofround; i++)
@@ -48,7 +48,7 @@ namespace Vigenere_Cipher
                     decryptText.Text = "";
                     encryptText.Text = encrypter.returnencryption();
                 }
-                else if (decrypt.IsChecked.Value)
+                else if (decrypt.IsChecked.Value && encryptText.Text != "")
                 {
                     Decryption.Decryption decrypter = new Decryption.Decryption(encryptText.Text, Key.Text);
                     for (int i = 0; i < noofround; i++)
