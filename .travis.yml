@@ -14,7 +14,7 @@ script:
 - dotnet build
 - dir .\\bin\\Debug\\netcoreapp3.0
   # This command generates a release.zip file.
-- make dist
+- make zip
 deploy:
   provider: releases
  # overwrite:true
